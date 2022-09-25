@@ -15,6 +15,9 @@
             background-color: #181a1b;
             color: #e8e6e3;
         }
+        .nightTheme a{
+            color: #0097C4;
+        }
 
         body {
             font-size: 1.1em;
@@ -76,12 +79,25 @@
             }
         }
         @media (prefers-color-scheme: dark) {
-            #myDIV {
+            html {
                 background-color: #181a1b;
                 color: #e8e6e3;
             }
             svg#icon-theme {
                 fill: #e8e6e3;
+            }
+            a {
+                color: #0097C4;
+            }
+            .nightTheme {
+                background-color: #e3ceb9;
+                color: #181a1b;
+            }
+            .nightTheme a{
+                color: blue;
+            }
+            svg#icon-theme.night {
+                fill: #393636;
             }
         }
     </style>
