@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-darkreader-mode="dynamic" data-darkreader-scheme="dark">
+<html id="myDIV" class="">
 
 <head>
     <meta charset="utf-8">
@@ -10,6 +10,12 @@
 
     <title>Lucy - Modista</title>
     <style type="text/css">
+
+        .nightTheme {
+            background-color: #181a1b;
+            color: #e8e6e3;
+        }
+
         body {
             font-size: 1.1em;
             line-height: 1.5em;
@@ -20,9 +26,21 @@
 
         .darkerBg {background-color: #e3ceb9;} 
 
-        html {background-color: #e3ceb9;} 
+        /* html {background-color: #e3ceb9;}  */
  
-        .sepiaBg {background-color:#eadbcb; } 
+        /* .sepiaBg {background-color:#eadbcb; }  */
+
+        body > a {
+            cursor: pointer;
+        }
+
+        svg#icon-theme {
+            width: 16px; height: 16px; fill: #393636;
+        }
+
+       svg#icon-theme.night {
+            fill: #e8e6e3;
+        }
 
         img {
             max-width: 060%;
@@ -64,6 +82,16 @@
 <body class="sepiaBg">
     <h1 class="home">Lucy</h1>
     <aside> modista </aside>
+
+    <p style="text-align: right;">
+        <a onclick="toggle()" title="Toggle theme">
+            <svg id="icon-theme" viewBox="0 0 16 16"> 
+                <title>theme</title> 
+                <path d="M8 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zM2 8c0-3.314 2.686-6 6-6v12c-3.314 0-6-2.686-6-6z"></path> 
+            </svg>
+        </a>
+    </p>
+
     <hr>
     <!-- <p>
         Nos dedicamos a hacer la ropa más cómoda y personalizada para ti.
@@ -110,6 +138,30 @@
         En trabajos complicados como vestidos de fiesta, de novia, etc; es recomendable inciar 3 semanas antes de la fecha en que lo necesite.
     </p>
 
+
+    <script>
+        function toggle() {
+            var element = document.getElementById("myDIV");
+            element.classList.toggle("nightTheme");
+            var icon = document.getElementById("icon-theme");
+            icon.classList.toggle("night");
+        }
+
+    // This code is only used to remember theme selection between page loads
+      const themeSwitch = document.querySelector('#icon-theme');
+      themeSwitch.checked = localStorage.getItem('switchedTheme') === 'true';
+
+      themeSwitch.addEventListener('change', function(e) {
+        if (e.currentTarget.checked === true) {
+          // Add item to localstorage
+          localStorage.setItem('switchedTheme', 'true');
+        } else {
+          // Remove item if theme is switched back to normal
+          localStorage.removeItem('switchedTheme');
+        }
+      });
+
+    </script>
 
 </body>
 
